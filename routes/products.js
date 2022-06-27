@@ -33,18 +33,37 @@ router.post('/', (req, resp) => {
     }
 })
 
-router.get('/productdetails', (req, resp) => {
-    console.log('products details sent.....');
+// router.get('/productdetails', (req, resp) => {
+//     console.log('products details sent.....');
+//     resp.send('products details sent.....');
+// })
+
+
+router.get('/productdetails2', (req, resp) => {
+    //const temp = req.params.id;
+    const temp2 = req.query.id;
+    console.log(req.query);
+    console.log('products details sent.....', req.query.id);
     resp.send('products details sent.....');
 })
 
 
-router.get('/productdetails/:id', (req, resp) => {
+router.get('/productdetails3/:id', (req, resp) => {
     const temp = req.params.id;
     console.log('products details sent.....', req.params.id);
     resp.send('products details sent.....');
 })
 
+
+router.delete('/', (req, res) => {
+    console.log('delete ');
+})
+
+
+router.put('/', (req, res) => {
+    console.log('updated.... ');
+    res.send('products details updated.....');
+})
 
 
 module.exports = router;
