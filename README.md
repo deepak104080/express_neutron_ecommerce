@@ -44,7 +44,7 @@ DELETE - Delete
 
 
 ----------------------------------------
-express.static
+express.static - to serve statci html pages
 express.text
 express.Router() - creates a collection of routes
 
@@ -87,3 +87,27 @@ res.end - send and end the tunnel
 router.get
 router.post
 router.use - apply middleware
+
+
+
+
+
+
+
+//Project Documentation
+
+Project Name - Foodie (Multi Vendor Food Delivery App), url
+Description - 2 to 3 lines
+Tech Stack - React, Express, MongoDB, D3JS, REST API
+Features/Pages - Restaurants Listsing, online food ordering, online payment, cart and checkout, discount and coupons, deliver later, book a table
+Screenshots
+
+Advancements/Future - review system, rating, favourites/wishlist, last orders, profile update
+
+
+
+
+
+
+Web App
+API - 

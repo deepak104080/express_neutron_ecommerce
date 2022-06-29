@@ -6,17 +6,21 @@ const app = express();
 app.use(bodyParser.json());
 // app.use(cors());
 
+const reqFilterAge = require('./middleware/middleware_age');
+// app.use(reqFilterAge);
+
+
 app.get('/', (req, resp) => {
     resp.send('<h2>My Express server has started.</h2>');
     console.log(colors.blue('My Express server has started.', new Date()))
 })
 
-app.get('/about', (req, resp) => {
+app.get('/about', reqFilterAge, (req, resp) => {
     console.log(colors.blue('My Express server has started.'))
     resp.send('About Page...')
 })
 
-app.get('/services', (req, resp) => {
+app.get('/services', reqFilterAge,  (req, resp) => {
     resp.send('services Page...')
     console.log(colors.blue('My Express server has started.'))
 })
@@ -42,7 +46,43 @@ app.use('/products', productsRoute);
 
 // const ordersRoute = require('./routes/products');
 // app.use('/orders', productsRoute);
+const path = require('path');
+const publicpath = path.join(__dirname, 'public');
+app.use(express.static(publicpath));
 
+app.get('/staticfile', (req, res) => {
+    res.sendFile(`${publicpath}/staticfile1.html`);
+})
+app.get('/staticabout', (req, res) => {
+    res.sendFile(`${publicpath}/staticfile2.html`);
+})
+app.get('/staticservices', (req, res) => {
+    res.sendFile(`${publicpath}/staticfile3.html`);
+})
+app.get('/staticcontact', (req, res) => {
+    res.sendFile(`${publicpath}/staticfile4.html`);
+})
+
+
+
+app.set('view engine', 'ejs');
+
+
+app.get('/ejsabout', (req, res) => {
+    const data = {
+        name: 'test',
+        city: 'tets city',
+        pincode: 123123
+    }
+    //data will be coming from model - database
+    res.render('ejsabout', {data});
+})
+app.get('/ejsservices', (req, res) => {
+    res.render('ejsservices');
+})
+app.get('/ejscontact', (req, res) => {
+    res.render('ejscontact');
+})
 
 app.listen(4000);
 
