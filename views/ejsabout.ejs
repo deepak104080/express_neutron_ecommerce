@@ -8,14 +8,16 @@
 
             <!-- include header html file -->
             <%-             include('common/header')        %>
+            <%-             include('common/menubar')        %>
             <div class="row">
                 <div class="col-12 bg-info">
                     <h2>Bootstrapped HTML page using express ejs</h2>
                 </div>
+
                 <div>    <%=     data.name      %>                 </div>
                 <div>    <%=     data.city      %>                 </div>
                 <div>    <%=     data.pincode      %>                 </div>
-
+                <!-- <input type="text" id="inputTest"/> -->
 
                 <%          if(data.pincode === 123123)         {   %>
 

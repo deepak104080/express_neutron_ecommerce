@@ -47,7 +47,8 @@ DELETE - Delete
 express.static - to serve statci html pages
 express.text
 express.Router() - creates a collection of routes
-
+express.json() - to read json throughout application
+express.urlencoded() - to handle req body and content type
 ----------------------------------------
 
 
@@ -79,7 +80,7 @@ res.json - to send json data
 res.sendFile - to send a file
 res.append - append data sent
 res.end - send and end the tunnel
-
+res.set - set header parameters
 
 
 -------------------------------------------

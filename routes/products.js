@@ -26,12 +26,21 @@ router.post('/', (req, resp) => {
     try{
         console.log('req - body - ', req.body);
         //store data in database
+        const tempObj = {
+            productid: req.body.productid,
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            image: req.body.image,
+            category: req.body.category,
+        }
         resp.send('api success...');
     }
     catch(err){
         resp.send('api failed...');
     }
 })
+//add product - productid, name, price, description, image, category
 
 // router.get('/productdetails', (req, resp) => {
 //     console.log('products details sent.....');
