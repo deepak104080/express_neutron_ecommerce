@@ -53,6 +53,7 @@ app.use('/products', productsRoute);
 // app.use('/orders', productsRoute);
 const path = require('path');
 const { reset } = require('nodemon');
+const { default: mongoose } = require('mongoose');
 const publicpath = path.join(__dirname, 'public');
 app.use(express.static(publicpath));
 
@@ -93,6 +94,13 @@ app.get('/ejsservices', (req, res) => {
 app.get('/ejscontact', (req, res) => {
     res.render('ejscontact');
 })
+
+
+mongoose.connect('mongodb+srv://testuser001:z9xsFuktzYAs4fMk@cluster0.2eq41.mongodb.net/ecommerce_ns?retryWrites=true&w=majority', ()=> {
+    console.log(colors.yellow('MongoDB connected...'))
+})
+
+//hostname, database, user, password
 
 app.listen(4000);
 

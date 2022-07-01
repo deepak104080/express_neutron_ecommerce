@@ -112,3 +112,40 @@ Advancements/Future - review system, rating, favourites/wishlist, last orders, p
 
 Web App
 API - 
+
+
+
+
+
+SQL - Structured Query language
+
+
+1) Structured Database - MySQL, MS SQL, PostgreSQL, Amazon RDS, Oracle
+2) Non Structured Database - NoSQL Database - MongoDB, Cassandra, CouchDB, Amazon DynamoDB
+
+1                           2
+Table                       Document
+SQL                         SQL - No
+Key                         Key not mandatory
+ACID Transactions           ACID rule not followed / CAP
+Table/Schema fixed          Flexible
+Vertically Scalable         Vertically/Horizontally Scalable
+Complex Queries             Complex Queries - Not suitable
+
+
+
+
+ORM - Object Relational Model
+DB - Object
+mongoose
+
+
+//-------------------------------
+
+
+mongoose.Schema
+mongoose.model
+mongoose.connect
+
+
+model.save

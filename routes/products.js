@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Product = require('../models/Product');
 
 
 router.get('/', (req, resp) => {
@@ -22,22 +23,27 @@ router.get('/', (req, resp) => {
 })
 
 
-router.post('/', (req, resp) => {
+router.post('/', async (req, resp) => {
     try{
         console.log('req - body - ', req.body);
         //store data in database
-        const tempObj = {
-            productid: req.body.productid,
-            name: req.body.name,
+        const tempObj = new Product({
+            id: req.body.productid,
+            title: req.body.productname,
             price: req.body.price,
             description: req.body.description,
             image: req.body.image,
             category: req.body.category,
-        }
-        resp.send('api success...');
+        })
+
+        const response = await tempObj.save();
+        console.log(response);
+        resp.status(201).json(response);
+        //resp.send('api success...', response);
     }
     catch(err){
-        resp.send('api failed...');
+        //resp.send('api failed...');
+        resp.status(400).json({message: err.message});
     }
 })
 //add product - productid, name, price, description, image, category
