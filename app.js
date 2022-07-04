@@ -1,12 +1,15 @@
 const express = require('express');
 const colors = require('colors');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
 // express.json();
 // express.urlencoded();
 // app.use(cors());
+
+app.use(cors());
 
 const reqFilterAge = require('./middleware/middleware_age');
 // app.use(reqFilterAge);
